@@ -13,9 +13,9 @@ function helpline_issues_taxonomy_default_vocabularies() {
       'name' => 'Issue Types',
       'machine_name' => 'issue_types',
       'description' => '',
-      'hierarchy' => '0',
+      'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => '0',
+      'weight' => 0,
     ),
   );
 }

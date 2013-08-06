@@ -10,14 +10,8 @@
  */
 function flippy_uninstall() {
   // We should delete variables and stuff and things.
- 
-  // Simple DB query to get the names of our variables.
-  $results = db_select('variable', 'v')
-    ->fields('v', array('name'))
-    ->condition('name', 'flippy_%', 'LIKE')
+  db_delete('variable')
+    ->condition('name', db_like('flippy_') . '%', 'LIKE')
     ->execute();
-  // Loop through and delete each of our variables.
-  foreach ($results as $result) {
-    variable_del($result->name);
-  }
+  cache_clear_all('variables', 'cache_bootstrap');
 }
