@@ -1,0 +1,878 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "normalize";
+
+// Type
+$openSans: 'Open Sans', arial, sans-serif;
+
+// Colours
+$red: #ac0000;
+$orange: #FC5C19;
+$light: #eee;
+$green: #2EB62E;
+$altGreen: #228722;
+$blue: #0083b1;
+$dark: #0E1206;
+
+// Lines
+$dashed: 1px dashed #ddd;
+
+body {
+    font-family: Georgia, serif;
+    padding: 0 .5em;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    border-bottom: 1px dotted #bbb;
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    border: none;
+    color: $altGreen;
+}
+
+a.feed-icon {
+    border: none;
+    margin: 10px 20px;
+}
+
+/* TYPOGRAPHY */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $red;
+    font-family: $openSans;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h1#page-title {
+    color: #333;
+    font-weight: 500;
+    margin-bottom: .25em;
+    text-transform: capitalize;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+p, pre {
+    line-height: 1.5em;
+}
+
+.breadcrumb {
+    font-family: $openSans;
+    margin-top: 1em;
+    text-transform: uppercase;
+    a {
+        border: none;
+    }
+}
+
+.block h3 {
+    margin-top: 0;
+}
+
+blockquote {
+    font-size: 1.25em;
+    p:before {
+        content:  open-quote;
+    }
+    p:after {
+        content: close-quote;
+    }
+    small {
+        font-size: 1em;
+    }
+}
+
+blockquote.pull-right {
+    @include span-columns(4);
+    float: right;
+    p {
+        margin: 0;
+    }
+}
+
+small {
+    font-size: .8em;
+}
+
+abbr {}
+
+address {}
+
+cite {}
+
+dl {}
+
+dt {}
+
+dd {}
+
+code {}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+h1.site-name {
+    font-size: 2.5em;
+    margin-top: 0;
+    text-align: center;
+}
+
+.intro { 
+  font-size: 1.5em;
+}
+
+article {
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0 0 .5em 0;
+    }
+    h1 {
+        font-size: 2em;
+    }
+}
+
+.byline {
+    font-size: .75em;
+}
+
+p {
+    a {
+        font-style: italic;
+    }
+}
+
+blockquote {
+    margin-bottom: 2em;
+}
+
+blockquote p {
+    font-size: 2em;
+    font-style: italic;
+    margin-bottom: .25em;
+    padding: 0;
+    text-align: left;
+}
+
+blockquote p:before {
+    content: "\2018";
+    font-weight: bold;
+}
+
+blockquote p:after {
+    content: "\2019";
+    font-weight: bold;
+}
+
+cite {
+    font-size: 1.25em;
+}
+
+cite:before {
+    content: "\2014";
+}
+
+figure {
+    @include clearfix;
+    border-bottom: thin solid #bbb;
+    margin: 0 0 3em 0;
+}
+
+figcaption {
+    @include span-columns(11);
+    font-family: sans-serif;
+    font-size: .8em;
+    padding: .5em 0;
+    text-align: right;
+}
+
+header, #main-content, footer {
+    @include span-columns(4 of 4)
+}
+
+// forms
+
+label {
+    font-family: $openSans;
+    font-weight: 500;
+    margin: .5em 0 .5em .5em;
+}
+
+#{$all-text-inputs}, textarea {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: .5em;
+}
+
+#{$all-text-inputs-hover}, textarea:hover {
+  background: $light;
+}
+
+#{$all-text-inputs-focus}, textarea:focus {
+  background: white;
+  border: 1px solid $green;
+}
+
+
+// Things to hide
+#main-content {
+    display: none;
+}
+
+// end hide
+
+#site-header, #main, #postscript, #site-footer {
+    @include span-columns(12);
+}
+
+// Header 
+
+#site-header {
+    @include span-columns(12);
+    @include omega();
+    border-bottom: $dashed;
+    padding-bottom: 1em;
+}
+
+a#logo {
+    @include span-columns(12);
+    @include omega();   
+    border: none;
+}
+
+#site-logo {
+    @include hide-text;
+    @include inline-block();
+    background: url(../img/helpline-logo.png) no-repeat left;
+    height: 155px;
+    width: 100%;
+    margin: 1em 1em 0 2em;
+    background-size: 60%;
+}
+
+#av-logo {
+    display: none;
+    background: url(../img/av-logo.png) no-repeat center top;
+    font-family: $openSans;
+    font-size: .8em;
+    height: 112px;
+    padding-top: 120px;
+    text-align: center;
+    width: 100%;
+}
+
+#main-navigation {
+    #main-menu { 
+      display: none;
+    }
+    a.mobile-toggle {
+        position: absolute;
+        top: 1.5em;
+        right: 1em;
+        color: white;
+        padding-bottom: .5em;
+    }    
+}
+
+// tabs
+
+ul.tabs {
+    border-bottom: none;
+    font-family: $openSans;
+    padding: 0 0 0 0em;
+    margin-top: 0;
+    border-bottom: thin solid #ddd;
+    li {
+        @include inline-block;
+        border-radius: 8px 8px 0 0;
+    }
+    li:hover {
+        background-color: $light;
+    }
+    li:hover a {
+        color: #333;
+    }
+    li.active {
+        @include linear-gradient($light, white);
+        border-top: thin solid #ddd;
+        border-right: thin solid #ddd;
+        border-left: thin solid #ddd;
+        border-bottom: 2px solid white;
+        margin-bottom: -1px;
+        a {
+            color: #333;
+        }
+    }
+    a {
+        display: block;
+        margin-right: 5px;
+        padding: 12px 20px;        
+        border-bottom: none;
+    }
+    a:hover {
+        background-color: transparent;
+        color: white;
+    }
+}
+
+ul.primary {
+    li.active a {
+        background-color: transparent;
+        border: none;
+        color: white;        
+    }
+    li a:hover {
+        background-color: tint($blue, 70%);
+        border: none;
+        border-radius: 10px;
+    }    
+    li a {
+        background-color: transparent;
+        border: none;
+        color: $dark;
+        margin: 0;
+        padding: 5px 20px;
+    }
+}
+
+// questions
+
+.question-title {
+    font-size: 1.125em;
+    text-transform: capitalize;
+    a {
+        color: $red;
+    }
+    a:hover {
+        color: $altGreen;
+    }
+}
+
+.post-date {
+    color: #666;
+    display: none;
+    font-size: .875em;
+}
+
+// Tables
+table {
+    width: 100%;
+}
+
+thead {
+}
+
+th {
+    border: none;
+    font-family: $openSans;
+    font-size: .75em;
+    font-weight: 500;
+    // padding: 5px 0px 5px 20px;
+    text-transform: uppercase;
+}
+
+tbody {
+    border-top: $dashed;
+}
+
+tr.even {
+    background-color: #f6f6f6;
+    border-bottom: none;
+}
+tr.odd {
+    background-color: white;
+    border-bottom: none;
+}
+
+td {
+    //padding: 15px 0 15px 20px;
+    padding: 15px 0 15px 0;
+}
+
+caption {
+    color: $red;
+    font-size: 1.5em;
+    font-style: italic;
+    padding: 1em 0 10px 20px;
+    text-align: left;
+}
+
+.views-field {
+    .item-list ul {
+        margin: .5em 0 0 0;
+    }
+    .item-list ul li {
+        @include inline-block;
+        margin: 0;
+    }    
+    .item-list ul li:after {
+        content: " / ";
+    }
+    .item-list ul li.last:after {
+        content: "";
+    }
+}
+
+.views-field-function, .views-field-totalcount, .views-field-comment-count {
+    text-align: center;
+}
+
+td.views-field-function, td.views-field-totalcount, td.views-field-comment-count {
+    color: #666;
+    font-family: $openSans;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+.views-field-totalcount {
+    display: none;
+}
+
+.view-header .tabs {
+    display: none;
+}
+
+// buttons
+
+a.button, .form-submit, #footer-main-menu a {
+    @include radial-gradient(tint($green, 20%), $green, $fallback: $green);
+    border-bottom: 5px solid #333;
+    border-radius: 5px;
+    color: white;
+    display: block;
+    font-family: $openSans;
+    font-size: 1.25em;
+    font-weight: 300;
+    font-style: normal;
+    //margin-left: 1em;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.form-submit {
+    @include inline-block;
+    margin-left: 0;
+    margin-right: .5em;
+    padding: 5px 20px;
+    text-transform: lowercase;
+    font-size: 1em;
+}
+
+a.button:hover, .form-submit:hover,  #footer-main-menu a:hover {
+    @include radial-gradient(tint($blue, 20%), $blue, $fallback: $blue);
+    border-bottom-color: $dark;
+}
+
+// blocks
+
+#sidebar .block {
+    border-bottom: $dashed;
+    //padding: 0 2em 0 1em;
+    margin-bottom: 1em;
+}
+
+#block-block-1 { 
+    min-height: 100px;
+    p {
+        margin: 0;
+        padding: 25px 0 0 0;
+    }
+}
+
+#block-block-5 {
+    border: none;
+}
+
+#block-views-question-categories-block {
+    display: none;
+    font-size: 1em;
+    font-family: $openSans;
+    .block-content {
+        padding-bottom: 1em;
+    }
+    .views-row {
+        margin-bottom: .5em;
+    }
+}
+
+.not-front .sidebar-call-promo, .not-front #content-preface {
+    display: none; 
+}
+
+.call-promo {
+    display: none;
+    width: 95%;
+}
+
+// Page Content
+
+#main-content-2col {
+    #content-preface {
+        border-bottom: $dashed;
+        min-height: 100px;
+        .region {
+            padding: 0;
+        }
+    }
+    .field {
+        margin-bottom: .5em;
+    }
+}
+
+#content-preface {
+    //padding: 1em;
+    p {
+        color: #555;
+        font-family: $openSans;
+        font-size: .85em;
+        margin: 0;
+    }
+}
+
+#content-preface .region {
+    padding: 0;
+}
+
+.ds-1col {
+    @include clearfix;
+}
+
+.ds-1col .field {
+    @include span-columns(12 of 12);
+}
+
+.field-name-post-date, .field-name-field-question-tags {
+    font-style: italic;
+    color: #777;
+}
+
+.field-name-post-date .field-item:before {
+    content: "Answered on ";
+}
+
+// flippy
+
+ul.flippy {
+    @include span-columns(12 of 12);
+    @include omega();
+    border-top: $dashed;
+    border-bottom: $dashed;
+    li {
+        @include inline-block;
+        font-family: $openSans;
+        padding: 1.5em 0;
+        text-align: center;
+        width: 49%;
+    }
+    a { 
+        border: none;
+        text-transform: capitalize;
+    }
+    .previous {
+        border-right: thin solid #ddd;
+    }
+}
+
+ul.flippy {
+    .next {
+        content: "next";
+    }
+}
+
+// Postscript
+
+#postscript {
+    border-top: $dashed;
+    padding-top: 1em;
+}
+
+// footer 
+
+#site-footer {
+    font-family: $openSans;
+    font-size: .85em;
+    width: 100%;
+    border-top: $dashed;
+        margin-top: 2em;
+    .region {
+        padding: 0;
+    }
+}
+
+ul#footer-main-menu {
+    padding: .5em 0;
+    li {
+        list-style: none;
+        padding: .5em;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+#block-views-question-categories-block-1 {
+    padding: 0 1em 1em 1em;
+    border-bottom: $dashed;
+    .views-row, .views-field {
+        @include inline-block();
+    }
+    .views-field {
+        padding: .5em 0;
+        a {
+            display: inline-block;
+            border-bottom: 2px solid #888;
+            padding: .5em 1em;
+            background-color: #ddd;
+            margin-right: .5em;      
+            color: #333;              
+        }
+        a:hover {
+            background-color: #bbb;
+        }
+    }
+}
+
+@media only screen and (min-width:30em) {
+    #site-logo {
+        background-size: 40%;
+    }
+}
+
+@media only screen and (min-width:48em) {
+    #site-header, #main, #postscript, #site-footer {
+        @include span-columns(11.5);
+        @include shift(.25);
+    }
+    a#logo {
+        @include span-columns(3);
+    }
+    #main-navigation {
+        @include span-columns(9);
+        @include omega();
+        margin-top: 1em;
+        #main-menu { 
+            display: block;
+        }        
+        a {
+            color: #555;
+            font-family: $openSans;
+            font-size: 1em;
+            padding-bottom: 1em;
+            text-align: center;
+        }
+        li:last-child a {
+            padding: 0;
+        }
+        a:hover {
+            color: $altGreen;
+            border-bottom-color: shade($green, 40%);
+        }
+        ul { 
+            padding: 0;
+        }
+        li {
+            margin-right: 1em;
+            padding-right: 1em;        
+        }
+        li:last-child {
+            margin-right: 0;
+            padding-right: 0;
+        }      
+        margin-top: 6em;        
+        li {
+            display: inline-block;
+            padding-right: 0;
+        }
+        a, li:last-child a {
+            border-bottom: thick solid #eee;
+            display: block;
+            margin-left: 0em;
+            text-align: left;
+            padding-bottom: .25em;
+        }
+        a.mobile-toggle {
+           display: none;
+        }
+    }
+
+    #site-logo {
+        background-size: 100%;
+    }
+    #sidebar {
+        @include span-columns(3);
+        @include omega();
+    }
+    #main-content-2col {
+        @include span-columns(9);
+        width: 76.76824%;
+        border-left: thin solid #ddd;
+        #content-preface {
+            padding: 1em 0 .5em 1em;
+        }
+        header, .region {
+            padding: 1em 0 0 1em;
+        }
+    }
+    #block-views-question-categories-block {
+        display: block;
+    }
+    a.button {
+        margin-left: 0;
+        margin-bottom: 1em;
+    }
+    #block-block-1 a.button {
+        width: 92%;
+    }
+    .call-promo {
+        display: block;
+        width: 95%;
+    }
+    .view-header .tabs {
+        display: block;
+    }
+    caption {
+        color: $red;
+        font-size: 1.275em;
+        font-style: italic;
+        padding: 0 0 10px 20px;
+        text-align: center;
+    }    
+    #block-views-question-categories-block-1 {
+        display: none;
+    }
+    #footer-main-menu {
+        li {
+            display: inline;
+        }
+        li a {
+            display: inline;
+            background-color: transparent;
+            background-image: none;
+            color: $dark;
+            font-size: 1em;
+            padding: 0 0 .25em 0;
+            border-radius: 0;
+            border-bottom: none;
+            text-align: left;
+        }
+        li a:hover {
+            background-color: transparent;
+        }
+    }
+    th, td {
+        padding: 15px;
+    }
+}
+
+@media only screen and (min-width:60em) {
+    #site-header, #main, #postscript, #site-footer {
+        @include span-columns(11);
+        @include shift(.5);
+    }    
+    #av-logo {
+        @include span-columns(2);
+        @include omega();
+        display: block;
+    }    
+    #main-navigation {
+        @include span-columns(7);
+        @include omega();
+        margin-top: 6em;        
+        li {
+            display: inline-block;
+            padding-right: 0;
+        }
+        a, li:last-child a {
+            border-bottom: thick solid #eee;
+            display: block;
+            margin-left: 0em;
+            text-align: left;
+            padding-bottom: .25em;
+        }
+    }
+    .views-field-totalcount {
+        display: table-cell;
+    }
+    .post-date {
+        display: inline;
+    }
+    .item-list ul li.first:before,
+    .field-name-field-question-tags .field-item:before {
+        content: "Categories: ";
+    }  
+    #main-content-2col {
+        #content-preface {
+            padding: 1.5em 10em 1em 2em;
+        }
+        header, .region {
+            padding: 2em 0 0 2em;
+        }
+    }      
+    #block-views-question-categories-block {
+        .field-content:before {
+            content: "> ";
+            color: #ddd;
+        }
+    }      
+}
+
+@media only screen and (min-width:82em) {
+    #site-header, #main, #postscript, #site-footer {
+        @include span-columns(10);
+        @include shift(1);
+    }        
+    #sidebar {
+        @include span-columns(3);
+        @include omega();
+    }
+    #site-logo {
+        background-size: 90%;
+    }    
+    #main-content-2col {
+        @include span-columns(9);
+        width: 76.76824%;
+    }
+    .ds-1col .field {
+        @include span-columns(10 of 12);
+    }
+}

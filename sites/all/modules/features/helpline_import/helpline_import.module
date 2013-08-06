@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Helpline Import feature.
+ */
+
+include_once 'helpline_import.features.inc';

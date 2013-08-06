@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Helpline Admin feature.
+ */
+
+include_once 'helpline_admin.features.inc';

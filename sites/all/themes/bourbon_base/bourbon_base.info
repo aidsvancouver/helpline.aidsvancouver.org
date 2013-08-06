@@ -1,0 +1,13 @@
+name = Bourbon Base
+description = Base theme built on Bourbon Neat
+core = 7.x
+stylesheets[all][] = css/bb-style.css
+regions[header] = Header
+regions[help] = Help
+regions[preface] = Preface
+regions[content_preface] = Content Preface
+regions[content] = Content
+regions[content_postscript] = Content Postscript
+regions[sidebar] = Sidebar
+regions[postscript] = Postscript
+regions[footer] = Footer

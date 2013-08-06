@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Helpline Q&A Display feature.
+ */
+
+include_once 'helpline_q_a_display.features.inc';

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Helpline Settings feature.
+ */
+
+include_once 'helpline_settings.features.inc';
