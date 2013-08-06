@@ -14,3 +14,12 @@ ul.flippy li {
   background: none;
   white-space: nowrap;
 }
+
+.flippy li.first.empty, .flippy li.last.empty {
+  display: none;
+}
+
+.flippy li.previous.empty, .flippy li.next.empty {
+  color: LightGrey;
+}
+

@@ -13,9 +13,9 @@ function helpline_q_a_display_taxonomy_default_vocabularies() {
       'name' => 'Question Categories',
       'machine_name' => 'question_categories',
       'description' => '',
-      'hierarchy' => '0',
+      'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => '0',
+      'weight' => 0,
     ),
   );
 }

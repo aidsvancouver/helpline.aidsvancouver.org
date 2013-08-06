@@ -24,6 +24,7 @@ now it's very simple. It might get more features later.
 REQUIREMENTS
 
 - Drupal 7
+- token module
 
 AUTHOR
 
