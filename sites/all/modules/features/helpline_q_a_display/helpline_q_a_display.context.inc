@@ -26,10 +26,10 @@ function helpline_q_a_display_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'block-4' => array(
+        'block-6' => array(
           'module' => 'block',
-          'delta' => '4',
-          'region' => 'preface',
+          'delta' => '6',
+          'region' => 'content_preface',
           'weight' => '-10',
         ),
         'block-1' => array(
@@ -44,10 +44,10 @@ function helpline_q_a_display_context_default_contexts() {
           'region' => 'sidebar',
           'weight' => '-12',
         ),
-        'block-3' => array(
-          'module' => 'block',
-          'delta' => '3',
-          'region' => 'postscript',
+        'views-question_categories-block_1' => array(
+          'module' => 'views',
+          'delta' => 'question_categories-block_1',
+          'region' => 'footer',
           'weight' => '-10',
         ),
         'block-2' => array(

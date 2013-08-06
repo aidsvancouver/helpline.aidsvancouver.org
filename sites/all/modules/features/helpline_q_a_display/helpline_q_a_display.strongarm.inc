@@ -102,7 +102,7 @@ function helpline_q_a_display_strongarm() {
       'display' => array(
         'flippy_pager' => array(
           'default' => array(
-            'weight' => '4',
+            'weight' => '5',
             'visible' => TRUE,
           ),
           'teaser' => array(

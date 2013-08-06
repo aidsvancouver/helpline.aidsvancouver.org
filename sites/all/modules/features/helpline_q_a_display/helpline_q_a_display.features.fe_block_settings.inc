@@ -33,6 +33,12 @@ function helpline_q_a_display_default_fe_block_settings() {
         'theme' => 'bourbon_subtheme',
         'weight' => '0',
       ),
+      'helpline' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'helpline',
+        'weight' => '0',
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -63,6 +69,12 @@ function helpline_q_a_display_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bourbon_subtheme',
+        'weight' => '0',
+      ),
+      'helpline' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'helpline',
         'weight' => '0',
       ),
       'seven' => array(
@@ -97,36 +109,10 @@ function helpline_q_a_display_default_fe_block_settings() {
         'theme' => 'bourbon_subtheme',
         'weight' => '0',
       ),
-      'seven' => array(
+      'helpline' => array(
         'region' => '',
         'status' => 0,
-        'theme' => 'seven',
-        'weight' => '0',
-      ),
-    ),
-    'title' => '',
-    'visibility' => '0',
-  );
-
-  $export['block-masthead'] = array(
-    'cache' => -1,
-    'custom' => '0',
-    'machine_name' => 'masthead',
-    'module' => 'block',
-    'node_types' => array(),
-    'pages' => '',
-    'roles' => array(),
-    'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => '0',
-      ),
-      'bourbon_subtheme' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bourbon_subtheme',
+        'theme' => 'helpline',
         'weight' => '0',
       ),
       'seven' => array(
@@ -159,6 +145,12 @@ function helpline_q_a_display_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bourbon_subtheme',
+        'weight' => '0',
+      ),
+      'helpline' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'helpline',
         'weight' => '0',
       ),
       'seven' => array(
@@ -195,6 +187,12 @@ function helpline_q_a_display_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bourbon_subtheme',
+        'weight' => '0',
+      ),
+      'helpline' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'helpline',
         'weight' => '0',
       ),
       'seven' => array(

@@ -32,7 +32,7 @@ function helpline_q_a_display_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
       'field' => 'created',
@@ -40,13 +40,70 @@ function helpline_q_a_display_views_default_views() {
       'rendered_strip' => 0,
     ),
   );
-  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['columns'] = array(
+    'created' => 'created',
+    'term_node_tid' => 'term_node_tid',
+    'title' => 'title',
+    'function' => 'function',
+    'totalcount' => 'totalcount',
+    'comment_count' => 'comment_count',
+    'nothing' => 'nothing',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'created' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'term_node_tid' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'function' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'totalcount' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'comment_count' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'nothing' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['label'] = 'Tabs';
-  $handler->display->display_options['header']['area']['content'] = '<ul class="nav nav-tabs"><li class="active"><a href="front">Recently Answered</a></li><li><a href="most-viewed">Most Viewed</a></li><li><a href="most-popular">Most Popular</a></li><li><a href="most-comments">Most Comments</a></li></ul>';
+  $handler->display->display_options['header']['area']['content'] = '<ul class="tabs"><li class="active"><a href="front">Recently Answered</a></li><li><a href="most-viewed">Most Viewed</a></li><li><a href="most-popular">Most Popular</a></li><li><a href="most-comments">Most Comments</a></li></ul>';
   $handler->display->display_options['header']['area']['format'] = 'markdown';
   /* Relationship: Content: Vote results */
   $handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
@@ -57,43 +114,14 @@ function helpline_q_a_display_views_default_views() {
     'tag' => '',
     'function' => 'sum',
   );
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Vote results: Function */
-  $handler->display->display_options['fields']['function']['id'] = 'function';
-  $handler->display->display_options['fields']['function']['table'] = 'votingapi_cache';
-  $handler->display->display_options['fields']['function']['field'] = 'function';
-  $handler->display->display_options['fields']['function']['relationship'] = 'votingapi_cache';
-  $handler->display->display_options['fields']['function']['label'] = '';
-  $handler->display->display_options['fields']['function']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['function']['element_label_colon'] = FALSE;
-  /* Field: Content statistics: Total views */
-  $handler->display->display_options['fields']['totalcount']['id'] = 'totalcount';
-  $handler->display->display_options['fields']['totalcount']['table'] = 'node_counter';
-  $handler->display->display_options['fields']['totalcount']['field'] = 'totalcount';
-  $handler->display->display_options['fields']['totalcount']['label'] = 'Views';
-  $handler->display->display_options['fields']['totalcount']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['totalcount']['element_label_colon'] = FALSE;
-  /* Field: Content: Comment count */
-  $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
-  $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
-  $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
-  $handler->display->display_options['fields']['comment_count']['label'] = 'Comments';
-  $handler->display->display_options['fields']['comment_count']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['created']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['created']['alter']['text'] = 'New Posts for [created]';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'medium';
   /* Field: Content: All taxonomy terms */
@@ -108,31 +136,59 @@ function helpline_q_a_display_views_default_views() {
     'issue_types' => 0,
     'question_categories' => 0,
   );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '[view_node][title] <em>[created]</em>
+<div class="tags"><em>[term_node_tid]</em></div>';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  /* Field: Content: Post date */
+  $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
+  $handler->display->display_options['fields']['created_1']['table'] = 'node';
+  $handler->display->display_options['fields']['created_1']['field'] = 'created';
+  $handler->display->display_options['fields']['created_1']['label'] = '';
+  $handler->display->display_options['fields']['created_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['created_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created_1']['date_format'] = 'time ago';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="views-field">
-  <div class="views-label">Views</div>
-  <div class="view-field-content">[totalcount]</div>
-</div>
-
-<div class="views-field">
-  <div class="views-label">Votes</div>
-  <div class="view-field-content">[function]</div>
-</div>
-
-<div class="views-field">
-  <div class="views-label">Comments</div>
-  <div class="view-field-content">[comment_count]</div>
-</div>
-
-<div class="views-field views-field-last">
-  <div><h3>[title]</h3></div>
-  <div>[term_node_tid]</div>
-</div>';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Question';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<span class="question-title">[title]</span> <em class="post-date">[created_1]</em>
+<div class="tags"><em>[term_node_tid]</em></div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: Vote results: Function */
+  $handler->display->display_options['fields']['function']['id'] = 'function';
+  $handler->display->display_options['fields']['function']['table'] = 'votingapi_cache';
+  $handler->display->display_options['fields']['function']['field'] = 'function';
+  $handler->display->display_options['fields']['function']['relationship'] = 'votingapi_cache';
+  $handler->display->display_options['fields']['function']['label'] = 'Rating';
+  $handler->display->display_options['fields']['function']['element_label_colon'] = FALSE;
+  /* Field: Content statistics: Total views */
+  $handler->display->display_options['fields']['totalcount']['id'] = 'totalcount';
+  $handler->display->display_options['fields']['totalcount']['table'] = 'node_counter';
+  $handler->display->display_options['fields']['totalcount']['field'] = 'totalcount';
+  $handler->display->display_options['fields']['totalcount']['label'] = 'Views';
+  $handler->display->display_options['fields']['totalcount']['element_label_colon'] = FALSE;
+  /* Field: Content: Comment count */
+  $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
+  $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
+  $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
+  $handler->display->display_options['fields']['comment_count']['label'] = 'Comments';
+  $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -251,7 +307,7 @@ function helpline_q_a_display_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Sort Questions by Category';
+  $handler->display->display_options['title'] = 'Topics';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -279,6 +335,12 @@ function helpline_q_a_display_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+
+  /* Display: Footer Topics */
+  $handler = $view->new_display('block', 'Footer Topics', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'View Answers by Topic';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $export['question_categories'] = $view;
 

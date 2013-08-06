@@ -42,13 +42,5 @@ We would love to hear from you! If you have feedback or questions related to the
 
   $export['footer_message'] = $fe_block_boxes;
 
-  $fe_block_boxes = new stdClass();
-  $fe_block_boxes->info = 'Masthead';
-  $fe_block_boxes->format = 'markdown';
-  $fe_block_boxes->machine_name = 'masthead';
-  $fe_block_boxes->body = '<img src="/helpline.aidsvanouver.org/public_html/sites/all/themes/bourbon_base/img/cover-image.jpg" alt="Welcome to the AIDS Vancouver Online Helpline!">';
-
-  $export['masthead'] = $fe_block_boxes;
-
   return $export;
 }
