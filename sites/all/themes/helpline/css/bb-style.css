@@ -1168,9 +1168,8 @@ ul.tabs {
 ul.primary li.active a {
   background-color: transparent;
   border: none;
-  color: white; }
+  color: #333; }
 ul.primary li a:hover {
-  background-color: #b2d9e7;
   border: none;
   border-radius: 10px; }
 ul.primary li a {
@@ -1187,6 +1186,13 @@ ul.primary li a {
     color: #ac0000; }
   .question-title a:hover {
     color: #228722; }
+
+.field-name-field-question .field-label, .field-name-field-answer .field-label {
+  font-family: "Open Sans", arial, sans-serif;
+  font-size: 1.5em;
+  font-weight: 100;
+  color: green;
+  margin-top: 1em; }
 
 .post-date {
   color: #666;
@@ -1238,7 +1244,7 @@ caption {
 .views-field .item-list ul li.last:after {
   content: ""; }
 
-.views-field-function, .views-field-totalcount, .views-field-comment-count {
+.views-field-function, .views-field-totalcount, .views-field-comment-count, .views-field-field-risk-level {
   text-align: center; }
 
 td.views-field-function, td.views-field-totalcount, td.views-field-comment-count {
@@ -1324,6 +1330,24 @@ a.button:hover, .form-submit:hover, #footer-main-menu a:hover {
   display: none;
   width: 95%; }
 
+.risk-57 a, .risk-58 a, .risk-59 a {
+  padding: 5px 10px;
+  color: #eee;
+  font-family: "Open Sans", arial, sans-serif;
+  border-bottom: none;
+  font-size: .8em;
+  text-transform: uppercase;
+  border-radius: 5px; }
+
+.risk-57 a {
+  background-color: red; }
+
+.risk-58 a {
+  background-color: orange; }
+
+.risk-59 a {
+  background-color: green; }
+
 #main-content-2col #content-preface {
   border-bottom: 1px dashed #dddddd;
   min-height: 100px; }
@@ -1337,6 +1361,8 @@ a.button:hover, .form-submit:hover, #footer-main-menu a:hover {
   font-family: "Open Sans", arial, sans-serif;
   font-size: .85em;
   margin: 0; }
+#content-preface p:first-child {
+  margin-bottom: 1em; }
 
 #content-preface .region {
   padding: 0; }
@@ -1392,6 +1418,16 @@ ul.flippy {
 
 ul.flippy .next {
   content: "next"; }
+
+.comment {
+  border-left: thick solid #dddddd;
+  border-bottom: thin dotted #dddddd;
+  margin-bottom: 2em;
+  padding-left: 1em; }
+  .comment aside {
+    margin-bottom: 1em; }
+    .comment aside li {
+      padding: 0 2em 0 0; }
 
 #postscript {
   border-top: 1px dashed #dddddd;
@@ -1510,6 +1546,8 @@ ul#footer-main-menu {
     margin-right: 0; }
     #sidebar:last-child {
       margin-right: 0; }
+    #sidebar a.button {
+      width: 92%; }
 
   #main-content-2col {
     display: block;
@@ -1531,9 +1569,6 @@ ul#footer-main-menu {
   a.button {
     margin-left: 0;
     margin-bottom: 1em; }
-
-  #block-block-1 a.button {
-    width: 92%; }
 
   .call-promo {
     display: block;
@@ -1619,7 +1654,7 @@ ul#footer-main-menu {
     content: "Categories: "; }
 
   #main-content-2col #content-preface {
-    padding: 1.5em 10em 1em 2em; }
+    padding: 1.5em 5em 1em 2em; }
   #main-content-2col header, #main-content-2col .region {
     padding: 2em 0 0 2em; }
 

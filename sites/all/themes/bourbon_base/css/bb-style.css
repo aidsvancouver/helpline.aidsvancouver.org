@@ -175,7 +175,7 @@ kbd,
 pre,
 samp {
   font-family: monospace, serif;
-  _font-family: 'courier new', monospace;
+  _font-family: "courier new", monospace;
   font-size: 1em; }
 
 /*
@@ -294,7 +294,7 @@ form {
  * Define consistent border, margin, and padding.
  */
 fieldset {
-  border: 1px solid #c0c0c0;
+  border: 1px solid silver;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em; }
 
@@ -515,7 +515,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #cccccc;
   margin: 1em 0;
   padding: 0; }
 
@@ -674,7 +674,7 @@ ul.primary, ul.tabs {
   margin-bottom: 10px; }
 
 fieldset {
-  border-left: 5px solid #ddd;
+  border-left: 5px solid #dddddd;
   padding: 10px; }
 
 label {
@@ -819,7 +819,7 @@ a.button:visited {
 
 .nav-tabs {
   padding: 0;
-  border-bottom: 1px solid #ddd; }
+  border-bottom: 1px solid #dddddd; }
   .nav-tabs a {
     display: block;
     padding-top: 12px;
@@ -835,7 +835,7 @@ a.button:visited {
     color: #555555;
     cursor: default;
     background-color: #f6f6f6;
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
     border-bottom-color: transparent;
     -webkit-border-radius: 4px 4px 0 0;
     -moz-border-radius: 4px 4px 0 0;
@@ -904,7 +904,7 @@ section#main {
   font-family: "Open Sans", arial, sans-serif;
   font-size: 2em;
   color: #aaa;
-  border-bottom: thin solid #ddd;
+  border-bottom: thin solid #dddddd;
   padding-bottom: 10px; }
 
 .field-Author, .field-name-post-date {
@@ -947,7 +947,7 @@ section#main {
   line-height: 1.4em;
   min-height: 63px;
   padding: 5px 10px 10px 0;
-  border-right: thin solid #ccc;
+  border-right: thin solid #cccccc;
   margin-right: 10px; }
 .view-helpline-tabs .views-field-last {
   border: 0; }
@@ -1024,7 +1024,7 @@ section#main {
 
 .region-content ul.flippy {
   *zoom: 1;
-  border: thin solid #ddd;
+  border: thin solid #dddddd;
   margin: 30px 0;
   padding: 10px; }
   .region-content ul.flippy:before, .region-content ul.flippy:after {
@@ -1036,7 +1036,7 @@ section#main {
     font-size: 1.25em;
     padding: 0; }
   .region-content ul.flippy .previous {
-    border-right: thin solid #ddd;
+    border-right: thin solid #dddddd;
     padding-right: 50px; }
   .region-content ul.flippy .next {
     margin-left: 50px; }
@@ -1050,7 +1050,7 @@ section#main {
   background: url(../img/q_a_icon.png) no-repeat scroll 0 0 transparent;
   margin-bottom: 10px;
   margin-top: 10px;
-  border-bottom: thick solid #EEE;
+  border-bottom: thick solid #eeeeee;
   height: 65px;
   width: 60px; }
 
@@ -1268,21 +1268,18 @@ section#main {
   text-align: center; }
 
 #block-block-1 {
-  border-bottom: thin solid #ddd;
+  border-bottom: thin solid #dddddd;
   margin-bottom: 10px; }
 
-.ask-question {
-  width: 92%; }
-
 .view-question-categories .views-row {
-  border-bottom: thin solid #ddd;
+  border-bottom: thin solid #dddddd;
   margin-bottom: 5px;
   padding: 5px 10px; }
 
 /* POSTSCRIPT */
 /* FOOTER */
 #site-footer {
-  border-top: thin solid #999;
+  border-top: thin solid #999999;
   padding: 20px 0;
   background: #333;
   color: white; }
@@ -1296,7 +1293,7 @@ section#main {
 @media print {
   * {
     background: transparent !important;
-    color: #000 !important;
+    color: black !important;
     /* Black prints faster: h5bp.com/s */
     box-shadow: none !important;
     text-shadow: none !important; }
@@ -1321,7 +1318,7 @@ section#main {
 
   pre,
   blockquote {
-    border: 1px solid #999;
+    border: 1px solid #999999;
     page-break-inside: avoid; }
 
   thead {

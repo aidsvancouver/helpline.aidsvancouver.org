@@ -359,10 +359,9 @@ ul.primary {
     li.active a {
         background-color: transparent;
         border: none;
-        color: white;        
+        color: #333;        
     }
     li a:hover {
-        background-color: tint($blue, 70%);
         border: none;
         border-radius: 10px;
     }    
@@ -388,11 +387,23 @@ ul.primary {
     }
 }
 
+.field-name-field-question, .field-name-field-answer {
+    .field-label {
+        font-family: $openSans;
+        font-size: 1.5em;
+        font-weight: 100;
+        color: green;
+        margin-top: 1em;
+    }
+}
+
 .post-date {
     color: #666;
     display: none;
     font-size: .875em;
 }
+
+
 
 // Tables
 table {
@@ -453,7 +464,7 @@ caption {
     }
 }
 
-.views-field-function, .views-field-totalcount, .views-field-comment-count {
+.views-field-function, .views-field-totalcount, .views-field-comment-count, .views-field-field-risk-level {
     text-align: center;
 }
 
@@ -545,6 +556,30 @@ a.button:hover, .form-submit:hover,  #footer-main-menu a:hover {
     width: 95%;
 }
 
+// Front Page
+
+.risk-57 a, .risk-58 a, .risk-59 a {
+    padding: 5px 10px;
+    color: #eee;
+    font-family: "Open Sans", arial, sans-serif;
+    border-bottom: none;
+    font-size: .8em;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.risk-57 a {
+    background-color: red;
+}
+
+.risk-58 a {
+    background-color: orange;
+}
+
+.risk-59 a {
+    background-color: green;
+}
+
 // Page Content
 
 #main-content-2col {
@@ -567,6 +602,9 @@ a.button:hover, .form-submit:hover,  #footer-main-menu a:hover {
         font-family: $openSans;
         font-size: .85em;
         margin: 0;
+    }
+    p:first-child {
+        margin-bottom: 1em;
     }
 }
 
@@ -618,6 +656,21 @@ ul.flippy {
     .next {
         content: "next";
     }
+}
+
+// Comments
+
+.comment { 
+    border-left: thick solid #ddd;
+    border-bottom: thin dotted #ddd;
+    margin-bottom: 2em;
+    padding-left: 1em;
+    aside {
+        margin-bottom: 1em;
+        li {
+            padding: 0 2em 0 0;
+        }
+    } 
 }
 
 // Postscript
@@ -741,6 +794,9 @@ ul#footer-main-menu {
     #sidebar {
         @include span-columns(3);
         @include omega();
+        a.button {
+            width: 92%;
+        }
     }
     #main-content-2col {
         @include span-columns(9);
@@ -759,9 +815,6 @@ ul#footer-main-menu {
     a.button {
         margin-left: 0;
         margin-bottom: 1em;
-    }
-    #block-block-1 a.button {
-        width: 92%;
     }
     .call-promo {
         display: block;
@@ -842,7 +895,7 @@ ul#footer-main-menu {
     }  
     #main-content-2col {
         #content-preface {
-            padding: 1.5em 10em 1em 2em;
+            padding: 1.5em 5em 1em 2em;
         }
         header, .region {
             padding: 2em 0 0 2em;
