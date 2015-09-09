@@ -15,11 +15,12 @@ $blue: #0083b1;
 $dark: #0E1206;
 
 // Lines
-$dashed: 1px dashed #ddd;
+$dashed: 1px solid #ddd;
 
 body {
     font-family: Georgia, serif;
     padding: 0 .5em;
+    font-weight: 100;
 }
 
 img {
@@ -28,7 +29,7 @@ img {
 
 a {
     border-bottom: 1px dotted #bbb;
-    color: #666;
+    color: #222;
     text-decoration: none;
 }
 
@@ -230,6 +231,11 @@ header, #main-content, footer {
     @include span-columns(4 of 4)
 }
 
+.tags {
+  padding-top: .25em;
+  font-size: .85em;
+}
+
 // forms
 
 label {
@@ -245,12 +251,16 @@ label {
 }
 
 #{$all-text-inputs-hover}, textarea:hover {
-  background: $light;
+  border-color: #aaa;
 }
 
 #{$all-text-inputs-focus}, textarea:focus {
   background: white;
   border: 1px solid $green;
+}
+
+.webform-client-form {
+  @include span-columns(12);
 }
 
 
@@ -266,6 +276,14 @@ label {
 }
 
 // Header 
+
+#site-notification {
+  background-color: #ddd;
+  padding: .5em 15em;
+  font-size: .85em;
+  text-align: center;
+  display: none;
+}
 
 #site-header {
     @include span-columns(12);
@@ -283,8 +301,8 @@ a#logo {
 #site-logo {
     @include hide-text;
     @include inline-block();
-    background: url(../img/helpline-logo.png) no-repeat left;
-    height: 155px;
+    background: url(../img/hl-logo.png) no-repeat left;
+    height: 80px;
     width: 100%;
     margin: 1em 1em 0 2em;
     background-size: 60%;
@@ -303,6 +321,7 @@ a#logo {
 
 #main-navigation {
     #main-menu { 
+      margin: 2.2em 0 0 0;
       display: none;
     }
     a.mobile-toggle {
@@ -324,7 +343,7 @@ ul.tabs {
     border-bottom: thin solid #ddd;
     li {
         @include inline-block;
-        border-radius: 8px 8px 0 0;
+        border-radius: 4px 4px 0 0;
     }
     li:hover {
         background-color: $light;
@@ -346,7 +365,8 @@ ul.tabs {
     a {
         display: block;
         margin-right: 5px;
-        padding: 12px 20px;        
+        padding: 6px 10px;        
+	font-size: .85em;
         border-bottom: none;
     }
     a:hover {
@@ -427,7 +447,7 @@ tbody {
 }
 
 tr.even {
-    background-color: #f6f6f6;
+    background-color: #eee;
     border-bottom: none;
 }
 tr.odd {
@@ -444,7 +464,7 @@ caption {
     color: $red;
     font-size: 1.5em;
     font-style: italic;
-    padding: 1em 0 10px 20px;
+    padding: 1em 0 10px 0;
     text-align: left;
 }
 
@@ -468,14 +488,18 @@ caption {
     text-align: center;
 }
 
+.views-field-field-risk-level {
+  min-width: 70px;
+}
+
 td.views-field-function, td.views-field-totalcount, td.views-field-comment-count {
-    color: #666;
+    color: #333;
     font-family: $openSans;
     font-size: 1.2em;
     font-weight: 300;
 }
 
-.views-field-totalcount {
+.views-field-totalcount, .views-field-comment-count {
     display: none;
 }
 
@@ -485,9 +509,11 @@ td.views-field-function, td.views-field-totalcount, td.views-field-comment-count
 
 // buttons
 
-a.button, .form-submit, #footer-main-menu a {
+a.button, .form-submit, #footer-main-menu a, #edit-submit {
     @include radial-gradient(tint($green, 20%), $green, $fallback: $green);
-    border-bottom: 5px solid #333;
+    border-left: none;
+    border-right: none;
+    border-top: none;
     border-radius: 5px;
     color: white;
     display: block;
@@ -508,26 +534,51 @@ a.button, .form-submit, #footer-main-menu a {
     padding: 5px 20px;
     text-transform: lowercase;
     font-size: 1em;
+    border: none;
 }
 
 a.button:hover, .form-submit:hover,  #footer-main-menu a:hover {
     @include radial-gradient(tint($blue, 20%), $blue, $fallback: $blue);
-    border-bottom-color: $dark;
 }
 
 // blocks
 
-#sidebar .block {
-    border-bottom: $dashed;
-    //padding: 0 2em 0 1em;
-    margin-bottom: 1em;
+#sidebar {
+  font-size: .85em;
 }
 
+#sidebar .block {
+    border-bottom: $dashed;
+    padding: 1em 1em 1em 0em; 
+}
+
+#search-block-form, #search-block-form--2 {
+  input {
+    width: 100%;
+    margin-bottom: .5em;
+    height: 49px;
+  }
+  input.form-text {
+  }
+}
+
+#main article #search-block-form {
+  margin-bottom: 1em;
+  input#edit-search-block-form--2 {
+	@include inline-block;
+	width: 45%;
+  }
+  input#edit-submit--2 {
+	@include inline-block;
+	border: none; 
+	width: 100px;
+  }
+}
+
+
 #block-block-1 { 
-    min-height: 100px;
     p {
         margin: 0;
-        padding: 25px 0 0 0;
     }
 }
 
@@ -547,7 +598,7 @@ a.button:hover, .form-submit:hover,  #footer-main-menu a:hover {
     }
 }
 
-.not-front .sidebar-call-promo, .not-front #content-preface {
+.not-front .sidebar-call-promo {
     display: none; 
 }
 
@@ -556,28 +607,39 @@ a.button:hover, .form-submit:hover,  #footer-main-menu a:hover {
     width: 95%;
 }
 
+.webform-client-form {
+	display: block;
+}
+
 // Front Page
 
-.risk-57 a, .risk-58 a, .risk-59 a {
+.risk-2560 a, .risk-2558 a, .risk-2559 a, .risk-2561 a {
     padding: 5px 10px;
     color: #eee;
     font-family: "Open Sans", arial, sans-serif;
     border-bottom: none;
-    font-size: .8em;
+    font-size: .6em;
     text-transform: uppercase;
     border-radius: 5px;
+    text-indent: -9999px;
+    font-weight: bold;
 }
 
-.risk-57 a {
+.risk-2558 a {
     background-color: red;
 }
 
-.risk-58 a {
+.risk-2559 a {
     background-color: orange;
+    color: #333;
 }
 
-.risk-59 a {
+.risk-2560 a {
     background-color: green;
+}
+
+.risk-2561 a {
+    background-color: lighten(blue, 25%);
 }
 
 // Page Content
@@ -595,10 +657,15 @@ a.button:hover, .form-submit:hover,  #footer-main-menu a:hover {
     }
 }
 
+.node-type-page #content-preface, .node-type-webform #content-preface {
+  display: none;
+}
+
 #content-preface {
     //padding: 1em;
+    display: none;
     p {
-        color: #555;
+        color: #000;
         font-family: $openSans;
         font-size: .85em;
         margin: 0;
@@ -610,6 +677,12 @@ a.button:hover, .form-submit:hover,  #footer-main-menu a:hover {
 
 #content-preface .region {
     padding: 0;
+}
+
+.field-name-field-subheadline {
+  font-family: $openSans;
+  font-size: 1.5em;
+  font-weight: 100;
 }
 
 .ds-1col {
@@ -627,6 +700,17 @@ a.button:hover, .form-submit:hover,  #footer-main-menu a:hover {
 
 .field-name-post-date .field-item:before {
     content: "Answered on ";
+}
+
+.back-button {
+  display: none;
+}
+
+.node-type-helpline-post .back-button {
+  @include inline-block();
+  border: none;
+  font-family: $openSans;
+  margin-bottom: .5em;
 }
 
 // flippy
@@ -725,6 +809,8 @@ ul#footer-main-menu {
     }
 }
 
+
+
 @media only screen and (min-width:30em) {
     #site-logo {
         background-size: 40%;
@@ -732,6 +818,10 @@ ul#footer-main-menu {
 }
 
 @media only screen and (min-width:48em) {
+    body { 
+      padding: 0;
+    }
+
     #site-header, #main, #postscript, #site-footer {
         @include span-columns(11.5);
         @include shift(.25);
@@ -739,6 +829,11 @@ ul#footer-main-menu {
     a#logo {
         @include span-columns(3);
     }
+   
+    #site-notification {
+       display: block;
+    }
+
     #main-navigation {
         @include span-columns(9);
         @include omega();
@@ -747,7 +842,7 @@ ul#footer-main-menu {
             display: block;
         }        
         a {
-            color: #555;
+            color: #000;
             font-family: $openSans;
             font-size: 1em;
             padding-bottom: 1em;
@@ -771,7 +866,7 @@ ul#footer-main-menu {
             margin-right: 0;
             padding-right: 0;
         }      
-        margin-top: 6em;        
+        //margin-top: 6em;        
         li {
             display: inline-block;
             padding-right: 0;
@@ -794,9 +889,9 @@ ul#footer-main-menu {
     #sidebar {
         @include span-columns(3);
         @include omega();
-        a.button {
-            width: 92%;
-        }
+    }
+    #content-preface {
+      display: block;
     }
     #main-content-2col {
         @include span-columns(9);
@@ -825,10 +920,9 @@ ul#footer-main-menu {
     }
     caption {
         color: $red;
-        font-size: 1.275em;
+        font-size: 1.75em;
         font-style: italic;
-        padding: 0 0 10px 20px;
-        text-align: center;
+        padding: 1em 0 10px 20px;
     }    
     #block-views-question-categories-block-1 {
         display: none;
@@ -855,6 +949,9 @@ ul#footer-main-menu {
     th, td {
         padding: 15px;
     }
+    table {
+      border-left: 5px solid #ddd;
+    }
 }
 
 @media only screen and (min-width:60em) {
@@ -870,7 +967,7 @@ ul#footer-main-menu {
     #main-navigation {
         @include span-columns(7);
         @include omega();
-        margin-top: 6em;        
+        //margin-top: 6em;        
         li {
             display: inline-block;
             padding-right: 0;
@@ -883,14 +980,13 @@ ul#footer-main-menu {
             padding-bottom: .25em;
         }
     }
-    .views-field-totalcount {
+    .views-field-totalcount, .views-field-comment-count {
         display: table-cell;
     }
     .post-date {
         display: inline;
     }
-    .item-list ul li.first:before,
-    .field-name-field-question-tags .field-item:before {
+    .field-name-field-question-category:before {
         content: "Categories: ";
     }  
     #main-content-2col {
@@ -928,4 +1024,12 @@ ul#footer-main-menu {
     .ds-1col .field {
         @include span-columns(10 of 12);
     }
+}
+
+/**** IE *****/
+
+.lt-ie9 {
+	#sidebar {
+		 width: 21%;
+	}
 }

@@ -53,6 +53,7 @@
 <head>
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <?php print $styles; ?>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,800,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Volkhov:400,400italic,700' rel='stylesheet' type='text/css'>

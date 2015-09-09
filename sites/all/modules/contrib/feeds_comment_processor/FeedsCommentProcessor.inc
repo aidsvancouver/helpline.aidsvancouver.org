@@ -81,6 +81,8 @@ class FeedsCommentProcessor extends FeedsProcessor {
    */
   public function entitySave($comment) {
     $comment->date = date('r', $comment->created);
+    // Trim the subject if it is too long.
+    $comment->subject = truncate_utf8(strip_tags($comment->subject), 64, TRUE, TRUE);
     comment_submit($comment);
     comment_save($comment);
   }
@@ -123,13 +125,11 @@ class FeedsCommentProcessor extends FeedsProcessor {
    * Override parent::configDefaults().
    */
   public function configDefaults() {
-    return array(
-      'input_format' => filter_default_format(),
-      'update_existing' => FEEDS_SKIP_EXISTING,
-      'expire' => FEEDS_EXPIRE_NEVER,
-      'mappings' => array(),
-      'author' => 0,
-    );
+    $defaults = parent::configDefaults();
+    $defaults['input_format'] = filter_default_format();
+    $defaults['expire'] = FEEDS_EXPIRE_NEVER;
+    $defaults['author'] = 0;
+    return $defaults;
   }
 
   /**
@@ -243,7 +243,7 @@ class FeedsCommentProcessor extends FeedsProcessor {
       ),
       'status' => array(
         'name' => t('Published status'),
-        'description' => t('The published status of a comment. (0 = Published, 1 = Not Published)'),
+        'description' => t('The published status of a comment. (0 = Not Published, 1 = Published)'),
       ),
       'name' => array(
         'name' => t('Name'),

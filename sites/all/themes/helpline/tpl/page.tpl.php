@@ -73,8 +73,14 @@
  */
 ?>
 
+  <?php if ($page['notifications']): ?>
+    <div id="site-notification">
+	<?php print render($page['notifications']); ?>
+    </div>
+  <?php endif; ?>
+
 <header id="site-header">
-    
+
     <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
       <h1 id="site-logo"><?php print $site_name; ?></h1>
     </a>
@@ -86,10 +92,6 @@
         <a class="mobile-toggle button" href="#footer-main-menu">Menu</a>
       </nav>
     <?php endif; ?>
-
-    <div id="av-logo">
-      The Helpline is a project<br>of <a href="http://www.aidsvancouver.org">AIDS Vancouver</a>
-    </div>
 
     <?php print render($page['header']); ?>
     
@@ -108,10 +110,10 @@
   <?php if ($page['sidebar']): ?>
     <aside id="sidebar">
       <?php print render($page['sidebar']); ?>
-      <div class="sidebar-call-promo">
-        <img class="call-promo" src="http://localhost/helpline.aidsvanouver.org/public_html/sites/all/themes/helpline/img/sidebar-promo.jpg">
+      <div class="sidebar-call-promo block">
+        <img class="call-promo" src="/sites/all/themes/helpline/img/sidebar-promo.jpg">
         <h3>Need to speak to someone?</h3>
-        <p>Give us a call at 604-696-4666. Our trained volunteers are able to take your calls Monday to Friday 9am-4pm PST.</p>
+        <p>Give us a call toll-free in Canada and the US at 1-844-INFO-HIV or reach us everywhere else at 604-253-0566 ext. 299 (long distance charges may apply). Our trained volunteers are able to take your calls Monday to Friday 9am-5pm.</p>
         <a href="/disclaimer" class="disclaimer-link hide-phone">Please read our disclaimer.</a>
       </div>
     </aside>
@@ -135,6 +137,7 @@
         <?php print render($page['help']); ?>
         <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>        
         <?php print render($title_prefix); ?>
+        <a href="/" class="back-button">&laquo; Go Back</a>
         <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
         <?php print render($title_suffix); ?>
       </header>
